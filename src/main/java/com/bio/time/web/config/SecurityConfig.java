@@ -4,9 +4,12 @@ import com.bio.time.domain.service.CustomUserDetailService;
 import com.bio.time.web.filter.JwtAuthenticationFilter;
 import com.bio.time.web.filter.JwtAuthorizationFilter;
 import com.bio.time.web.security.JwtUtil;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -22,6 +25,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
@@ -29,7 +35,7 @@ import static org.springframework.security.web.util.matcher.AntPathRequestMatche
 
 @Configuration
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class SecurityConfig {
+public class SecurityConfig implements WebMvcConfigurer{
 
     @Autowired JwtUtil jwtUtil;
     @Bean
@@ -50,11 +56,13 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> {
-                    //auth.requestMatchers(HttpMethod.OPTIONS,"/**").permitAll();
+                    auth.requestMatchers(antMatcher(HttpMethod.POST,"/auth/login")).permitAll();
                     auth.requestMatchers(antMatcher("/auth/login")).permitAll();
+                    auth.requestMatchers(antMatcher("/auth/login1")).permitAll();
                     auth.requestMatchers(antMatcher("/sendMail/v1")).permitAll();
                     auth.requestMatchers(antMatcher("/recovery/password")).permitAll();
                     auth.requestMatchers(antMatcher("/**")).permitAll();
+                    //auth.requestMatchers(HttpMethod.POST)
                     auth.anyRequest().authenticated();
                 })
                 .sessionManagement(sessions -> {
@@ -76,10 +84,18 @@ public class SecurityConfig {
         return source;
     }
 
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:5173") // Replace with the actual origin of your frontend application
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("Origin", "Content-Type", "Accept", "Authorization")
+                .allowCredentials(true); // Allow credentials (cookies, authentication headers)
+    }
+
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-
         authProvider.setUserDetailsService(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder());
 
