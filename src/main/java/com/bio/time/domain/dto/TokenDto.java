@@ -1,11 +1,14 @@
 package com.bio.time.domain.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class TokenDto {
     String value;
 
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 }

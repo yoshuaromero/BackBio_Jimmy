@@ -2,17 +2,11 @@ package com.bio.time.persistence.entity;
 
 import com.bio.time.consts.ERoleConsts;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 @Entity
 @Table(name="profiles")
-@Setter
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class ProfilesEntity {
 
     @Id
@@ -21,4 +15,28 @@ public class ProfilesEntity {
     private String name;
     @Enumerated(EnumType.STRING)
     private ERoleConsts code;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ERoleConsts getCode() {
+        return code;
+    }
+
+    public void setCode(ERoleConsts code) {
+        this.code = code;
+    }
 }

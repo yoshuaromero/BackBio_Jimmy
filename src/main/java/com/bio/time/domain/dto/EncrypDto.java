@@ -1,16 +1,26 @@
 package com.bio.time.domain.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import java.time.LocalDateTime;
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class EncrypDto {
     private String opt;
     private LocalDateTime date;
+
+    public String getOpt() {
+        return opt;
+    }
+
+    public void setOpt(String opt) {
+        this.opt = opt;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
 }

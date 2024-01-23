@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:5173/")
+//@CrossOrigin(origins = "http://localhost:5173/")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -25,12 +25,5 @@ public class AuthController {
         } catch (Exception error) {
             throw error;
         }
-    }
-    @GetMapping("/login1")
-    public String login1(){
-
-
-            return "hola mundo";
-
     }
 }

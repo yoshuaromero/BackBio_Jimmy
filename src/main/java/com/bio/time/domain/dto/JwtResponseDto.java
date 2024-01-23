@@ -1,10 +1,6 @@
 package com.bio.time.domain.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class JwtResponseDto extends AuthTokensDto {
 
         private String token;
@@ -30,5 +26,93 @@ public class JwtResponseDto extends AuthTokensDto {
                 this.lastname = lastname;
                 this.idProfile = idProfile;
                 this.idStatus = idStatus;
+        }
+
+        public String getToken() {
+                return token;
+        }
+
+        public void setToken(String token) {
+                this.token = token;
+        }
+
+        public Integer getUserId() {
+                return userId;
+        }
+
+        public void setUserId(Integer userId) {
+                this.userId = userId;
+        }
+
+        public String getUsername() {
+                return username;
+        }
+
+        public void setUsername(String username) {
+                this.username = username;
+        }
+
+        public String getEmail() {
+                return email;
+        }
+
+        public void setEmail(String email) {
+                this.email = email;
+        }
+
+        public String getCellphone() {
+                return cellphone;
+        }
+
+        public void setCellphone(String cellphone) {
+                this.cellphone = cellphone;
+        }
+
+        public String getName() {
+                return name;
+        }
+
+        public void setName(String name) {
+                this.name = name;
+        }
+
+        public String getLastname() {
+                return lastname;
+        }
+
+        public void setLastname(String lastname) {
+                this.lastname = lastname;
+        }
+
+        public Integer getIdProfile() {
+                return idProfile;
+        }
+
+        public void setIdProfile(Integer idProfile) {
+                this.idProfile = idProfile;
+        }
+
+        public Integer getVisualDisability() {
+                return visualDisability;
+        }
+
+        public void setVisualDisability(Integer visualDisability) {
+                this.visualDisability = visualDisability;
+        }
+
+        public Integer getIdStatus() {
+                return idStatus;
+        }
+
+        public void setIdStatus(Integer idStatus) {
+                this.idStatus = idStatus;
+        }
+
+        public Integer getIdPaymentMethod() {
+                return idPaymentMethod;
+        }
+
+        public void setIdPaymentMethod(Integer idPaymentMethod) {
+                this.idPaymentMethod = idPaymentMethod;
         }
 }

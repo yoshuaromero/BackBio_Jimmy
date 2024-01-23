@@ -3,8 +3,7 @@ package com.bio.time.persistence.mapper;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.bio.time.domain.dto.UsersDto;
 import com.bio.time.persistence.entity.UsersEntity;
-import lombok.Getter;
-import lombok.Setter;
+
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 
