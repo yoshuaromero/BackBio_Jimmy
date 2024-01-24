@@ -9,6 +9,8 @@ import com.bio.time.persistence.mapper.WorkPlanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class WorkPlanRepository implements IWorkPlanRepository {
 
@@ -21,5 +23,18 @@ public class WorkPlanRepository implements IWorkPlanRepository {
         WorkPlanEntity entityResult = workPlanCrudRepository.save(entity);
         return workPlanMapper.toWorkPlanDto(entityResult);
     }
+    @Override
+    public List<WorkPlanDto> listAll(){
+        return workPlanMapper.toListAllPlanWork(workPlanCrudRepository.findAll());
+    }
+    @Override
+    public WorkPlanDto update(Integer userId, WorkPlanDto workPlanDto){
+        WorkPlanEntity entity = workPlanMapper.toWorkPlanDto(workPlanDto);
+        entity.setCreateBy(userId);
+        WorkPlanEntity entityResult = workPlanCrudRepository.save(entity);
+        return workPlanMapper.toWorkPlanDto(entityResult);
+    }
+
+
 
 }

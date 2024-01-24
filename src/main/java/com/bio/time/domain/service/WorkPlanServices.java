@@ -27,4 +27,18 @@ public class WorkPlanServices {
 
         return workPlanRepository.save(userId, data);
     }
+
+    @Transactional(readOnly = true)
+    public List<WorkPlanDto> getlist(Integer userId) throws  HttpGenericException {
+        if (userId==null)
+            throw new HttpGenericException(HttpStatus.BAD_REQUEST, "Este usuario no se encuentra registrado");
+        return workPlanRepository.listAll();
+    }
+
+    @Transactional
+    public WorkPlanDto putUpdate(Integer userId, WorkPlanDto workPlanDto) throws  HttpGenericException {
+        if (userId==null)
+            throw new HttpGenericException(HttpStatus.BAD_REQUEST, "Este usuario no se encuentra registrado");
+        return workPlanRepository.update(userId, workPlanDto);
+    }
 }
