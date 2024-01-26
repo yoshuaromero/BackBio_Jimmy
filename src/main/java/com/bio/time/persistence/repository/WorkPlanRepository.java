@@ -35,6 +35,8 @@ public class WorkPlanRepository implements IWorkPlanRepository {
         return workPlanMapper.toWorkPlanDto(entityResult);
     }
 
-
-
+    @Override
+    public boolean  existWorkPlanById(Integer idWorkPlan) {
+        return workPlanCrudRepository.existsById(idWorkPlan);
+    }
 }

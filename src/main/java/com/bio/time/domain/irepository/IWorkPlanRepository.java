@@ -7,7 +7,11 @@ import java.util.List;
 
 public interface IWorkPlanRepository {
     WorkPlanDto save(Integer userId, CreateWorkPlanDto createWorkPlanDto);
+
     WorkPlanDto update(Integer userId, WorkPlanDto workPlanDto);
+
     List<WorkPlanDto> listAll();
+
+    boolean existWorkPlanById(Integer idWorkPlan);
 
 }

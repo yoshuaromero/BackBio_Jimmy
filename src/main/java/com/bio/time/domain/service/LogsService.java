@@ -15,9 +15,10 @@ public class LogsService{
     private ILogsRepository logsRepository;
     @Transactional(readOnly = true)
     public Integer getId(String user) throws HttpGenericException {
-        Optional<Integer> name = logsRepository.getId(user);
-        if (name.isEmpty())
-            throw new HttpGenericException(HttpStatus.CONTINUE, "No existe información sobre el usuario");
-        return name.get();
+        Optional<Integer> userId = logsRepository.getId(user);
+        if (userId.isEmpty()) {
+            throw new HttpGenericException(HttpStatus.NOT_FOUND, "No existe información sobre el usuario");
+        }
+        return userId.get();
     }
 }
