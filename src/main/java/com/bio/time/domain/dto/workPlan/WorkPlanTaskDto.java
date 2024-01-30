@@ -1,4 +1,4 @@
-package com.bio.time.domain.dto;
+package com.bio.time.domain.dto.workPlan;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Max;

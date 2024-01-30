@@ -1,4 +1,4 @@
-package com.bio.time.domain.dto;
+package com.bio.time.domain.dto.workPlan;
 
 import java.time.LocalDateTime;
 
@@ -7,6 +7,8 @@ public class WorkPlanDto {
     private String item;
     private String workPlanName;
     private Integer createBy;
+    private Integer status;
+    private Integer companyId;
     private LocalDateTime created;
 
     public Integer getId() {
@@ -15,6 +17,14 @@ public class WorkPlanDto {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getItem() {
+        return item;
+    }
+
+    public void setItem(String item) {
+        this.item = item;
     }
 
     public String getWorkPlanName() {
@@ -33,16 +43,26 @@ public class WorkPlanDto {
         this.createBy = createBy;
     }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
+
     public LocalDateTime getCreated() {
         return created;
     }
-    public String getItem() {
-        return item;
-    }
 
-    public void setItem(String item) {
-        this.item = item;
-    }
     public void setCreated(LocalDateTime created) {
         this.created = created;
     }

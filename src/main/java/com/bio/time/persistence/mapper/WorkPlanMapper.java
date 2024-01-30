@@ -1,9 +1,8 @@
 package com.bio.time.persistence.mapper;
 
-import com.bio.time.domain.dto.CreateWorkPlanDto;
-import com.bio.time.domain.dto.WorkPlanDto;
+import com.bio.time.domain.dto.workPlan.CreateWorkPlanDto;
+import com.bio.time.domain.dto.workPlan.WorkPlanDto;
 import com.bio.time.persistence.entity.WorkPlanEntity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

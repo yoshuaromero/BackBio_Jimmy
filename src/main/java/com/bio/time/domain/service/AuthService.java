@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 @Service
-public class AuthServices implements UserDetailsService {
+public class AuthService implements UserDetailsService {
 
     @Autowired
     private UsersRepository usersRepository;

@@ -47,7 +47,7 @@ public class RecoveryPasswordService {
         email.setTo(recoveryPasswordDto.getEmail());
         email.setFrom("emailFrom");
         email.setSubject("Mensaje para la recuperación de contraseña.");
-        email.setText(String.format("Con este código %s usted podrá recuperar su contraseña de la aplicación Taxi Oro.", opt.get("opt")) );
+        email.setText(String.format("Con este código %s usted podrá recuperar su contraseña de la aplicación.", opt.get("opt")) );
         sendNotificationService.sendEmail(email);
     }
     @Transactional

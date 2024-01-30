@@ -1,4 +1,4 @@
-package com.bio.time.domain.dto;
+package com.bio.time.domain.dto.workPlan;
 
 public class CreateWorkPlanTaskDto {
 

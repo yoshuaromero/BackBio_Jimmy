@@ -1,6 +1,6 @@
 package com.bio.time.web.filter;
 
-import com.bio.time.domain.service.AuthServices;
+import com.bio.time.domain.service.AuthService;
 import com.bio.time.web.security.JwtUtil;
 import io.micrometer.common.lang.NonNull;
 import jakarta.servlet.FilterChain;
@@ -20,7 +20,7 @@ import java.io.IOException;
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
     @Autowired private JwtUtil jwtUtil;
 
-    @Autowired private AuthServices authServices;
+    @Autowired private AuthService authService;
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
@@ -34,7 +34,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
             if(jwtUtil.isTokenValid(token)){
                 String username = jwtUtil.getUsernameFromToken(token);
-                UserDetails userDetails = authServices.loadUserByUsername(username);
+                UserDetails userDetails = authService.loadUserByUsername(username);
 
                 UsernamePasswordAuthenticationToken authenticationToken =
                         new UsernamePasswordAuthenticationToken(username, null, userDetails.getAuthorities());

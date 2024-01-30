@@ -16,6 +16,9 @@ public class WorkPlanEntity {
     private String item;
     @Column(name = "work_plan_name")
     private String workPlanName;
+    private Integer status;
+    @Column(name = "company_id")
+    private Integer companyId;
     @Column(name = "created", insertable = false, updatable = false)
     private LocalDateTime created;
     @Column(name = "create_by")
@@ -59,5 +62,21 @@ public class WorkPlanEntity {
 
     public void setItem(String item) {
         this.item = item;
+    }
+
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

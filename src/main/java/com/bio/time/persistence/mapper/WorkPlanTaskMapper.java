@@ -1,9 +1,7 @@
 package com.bio.time.persistence.mapper;
 
-import com.bio.time.domain.dto.CreateWorkPlanTaskDto;
-import com.bio.time.domain.dto.WorkPlanDto;
-import com.bio.time.domain.dto.WorkPlanTaskDto;
-import com.bio.time.persistence.entity.WorkPlanEntity;
+import com.bio.time.domain.dto.workPlan.CreateWorkPlanTaskDto;
+import com.bio.time.domain.dto.workPlan.WorkPlanTaskDto;
 import com.bio.time.persistence.entity.WorkPlanTaskEntity;
 import org.mapstruct.Mapper;
 

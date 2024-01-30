@@ -1,8 +1,8 @@
 package com.bio.time.persistence.repository;
 
-import com.bio.time.domain.dto.CreateWorkPlanDto;
-import com.bio.time.domain.dto.WorkPlanDto;
-import com.bio.time.domain.irepository.IWorkPlanRepository;
+import com.bio.time.domain.dto.workPlan.CreateWorkPlanDto;
+import com.bio.time.domain.dto.workPlan.WorkPlanDto;
+import com.bio.time.domain.irepository.workPlan.IWorkPlanRepository;
 import com.bio.time.persistence.crud.WorkPlanCrudRepository;
 import com.bio.time.persistence.entity.WorkPlanEntity;
 import com.bio.time.persistence.mapper.WorkPlanMapper;

@@ -1,7 +1,7 @@
-package com.bio.time.domain.irepository;
+package com.bio.time.domain.irepository.workPlan;
 
-import com.bio.time.domain.dto.CreateWorkPlanDto;
-import com.bio.time.domain.dto.WorkPlanDto;
+import com.bio.time.domain.dto.workPlan.CreateWorkPlanDto;
+import com.bio.time.domain.dto.workPlan.WorkPlanDto;
 
 import java.util.List;
 
