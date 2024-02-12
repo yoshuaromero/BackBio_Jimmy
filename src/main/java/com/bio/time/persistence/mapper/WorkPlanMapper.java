@@ -3,6 +3,7 @@ package com.bio.time.persistence.mapper;
 import com.bio.time.domain.dto.workPlan.CreateWorkPlanDto;
 import com.bio.time.domain.dto.workPlan.WorkPlanDto;
 import com.bio.time.persistence.entity.WorkPlanEntity;
+import com.bio.time.persistence.projection.WorkPlanProjection;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -16,5 +17,4 @@ public interface WorkPlanMapper {
     WorkPlanEntity toWorkPlanEntity(CreateWorkPlanDto createWorkPlanDto);
     WorkPlanEntity toWorkPlanDto(WorkPlanDto workPlanDto);
     WorkPlanDto toWorkPlanDto(WorkPlanEntity workPlanEntity);
-    List<WorkPlanDto> toListAllPlanWork(Iterable<WorkPlanEntity> all);
 }

@@ -1,6 +1,10 @@
 package com.bio.time.domain.dto;
 
 
+import com.bio.time.domain.dto.user.MenuProfileStageDto;
+
+import java.util.List;
+
 public class JwtResponseDto extends AuthTokensDto {
 
         private String token;
@@ -14,9 +18,10 @@ public class JwtResponseDto extends AuthTokensDto {
         private Integer visualDisability;
         private Integer idStatus;
         private Integer idPaymentMethod;
+        private  List<MenuProfileStageDto> listMenu;
 
         public JwtResponseDto(String token, Integer userId, String username, String email, String cellphone, String name,
-                              String lastname, Integer idProfile, Integer idStatus) {
+                              String lastname, Integer idProfile, Integer idStatus, List<MenuProfileStageDto> listMenu) {
                 this.token = token;
                 this.userId = userId;
                 this.username = username;
@@ -26,6 +31,7 @@ public class JwtResponseDto extends AuthTokensDto {
                 this.lastname = lastname;
                 this.idProfile = idProfile;
                 this.idStatus = idStatus;
+                this.listMenu = listMenu;
         }
 
         public String getToken() {
@@ -114,5 +120,13 @@ public class JwtResponseDto extends AuthTokensDto {
 
         public void setIdPaymentMethod(Integer idPaymentMethod) {
                 this.idPaymentMethod = idPaymentMethod;
+        }
+
+        public List<MenuProfileStageDto> getListMenu() {
+                return listMenu;
+        }
+
+        public void setListMenu(List<MenuProfileStageDto> listMenu) {
+                this.listMenu = listMenu;
         }
 }

@@ -1,4 +1,4 @@
-package com.bio.time.web.controller;
+package com.bio.time.web.controller.workPlan;
 
 import com.bio.time.domain.dto.workPlan.CreateWorkPlanTaskDto;
 import com.bio.time.domain.dto.workPlan.WorkPlanTaskDto;

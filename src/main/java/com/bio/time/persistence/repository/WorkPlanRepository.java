@@ -6,10 +6,13 @@ import com.bio.time.domain.irepository.workPlan.IWorkPlanRepository;
 import com.bio.time.persistence.crud.WorkPlanCrudRepository;
 import com.bio.time.persistence.entity.WorkPlanEntity;
 import com.bio.time.persistence.mapper.WorkPlanMapper;
+import com.bio.time.persistence.projection.WorkPlanProjection;
+import org.springframework.data.domain.Pageable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 
 @Repository
 public class WorkPlanRepository implements IWorkPlanRepository {
@@ -24,8 +27,8 @@ public class WorkPlanRepository implements IWorkPlanRepository {
         return workPlanMapper.toWorkPlanDto(entityResult);
     }
     @Override
-    public List<WorkPlanDto> listAll(){
-        return workPlanMapper.toListAllPlanWork(workPlanCrudRepository.findAll());
+    public List<WorkPlanProjection> listAll(int offset, int limit){
+        return workPlanCrudRepository.getAllProyection(offset, limit);
     }
     @Override
     public WorkPlanDto update(Integer userId, WorkPlanDto workPlanDto){
@@ -39,4 +42,9 @@ public class WorkPlanRepository implements IWorkPlanRepository {
     public boolean  existWorkPlanById(Integer idWorkPlan) {
         return workPlanCrudRepository.existsById(idWorkPlan);
     }
+    @Override
+    public WorkPlanDto replyWorkPlan(Integer userId, Integer companyId, Integer workPlanId){
+        return workPlanCrudRepository.replyWorkPlan(userId, companyId, workPlanId);
+    }
+
 }

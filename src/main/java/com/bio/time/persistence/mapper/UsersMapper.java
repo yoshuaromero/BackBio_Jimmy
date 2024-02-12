@@ -14,6 +14,6 @@ import java.util.Optional;
 public interface UsersMapper {
     UsersEntity toUsersEntitya(UsersDto logsDto);
     //@InheritInverseConfiguration
-    UsersDto toUsersDto(UsersEntity UsersEntity);
+    UsersDto toUsersDto(UsersEntity usersEntity);
 
 }

@@ -3,7 +3,9 @@ package com.bio.time.domain.service;
 import com.bio.time.domain.dto.JwtResponseDto;
 import com.bio.time.domain.dto.LoginRequestDto;
 import com.bio.time.domain.dto.UsersDto;
+import com.bio.time.domain.dto.user.MenuProfileStageDto;
 import com.bio.time.domain.exception.HttpGenericException;
+import com.bio.time.domain.service.user.MenuService;
 import com.bio.time.persistence.repository.ProfilesRepository;
 import com.bio.time.persistence.repository.UserRepository;
 import com.bio.time.persistence.repository.UsersRepository;
@@ -23,6 +25,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -36,6 +39,9 @@ public class AuthService implements UserDetailsService {
     private ProfilesRepository profilesRepository;
     @Autowired
     private AuthenticationManager authManager;
+
+    @Autowired
+    private MenuService menuService;
     @Autowired
     private JwtUtil jwtUtil;
 
@@ -72,10 +78,11 @@ public class AuthService implements UserDetailsService {
             if (dataOptional.isEmpty())
                 throw new HttpGenericException(HttpStatus.BAD_REQUEST, "Credenciales incorrectas");
             UsersDto data = dataOptional.get();
+            List<MenuProfileStageDto> listMenusByProfile = menuService.listMenusByProfile(userdata.get().getId());
 
             JwtResponseDto resultLogin = (new JwtResponseDto(jwt, data.getId(), data.getUsername(), data.getEmail(),
                     data.getCellphone(), data.getName(), data.getLastname(), data.getIdProfile(),
-                    data.getIdStatus()));
+                    data.getIdStatus(), listMenusByProfile));
 
             return resultLogin;
         } catch (BadCredentialsException e) {
